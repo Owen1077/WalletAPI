@@ -110,7 +110,7 @@ namespace WalletTransaction.Services.Implementation
 
         public async Task  Update(Wallet wallet)
         {
-           var WalletToUpdate =_DbContext .Wallets.Where (x => x.WalletId == wallet.WalletId).FirstOrDefault();
+            var WalletToUpdate = await _DbContext.Wallets.Where(x => x.WalletId == wallet.WalletId).FirstOrDefaultAsync();
             if (WalletToUpdate != null)
             {
                 WalletToUpdate.WalletId = wallet.WalletId;
@@ -122,8 +122,8 @@ namespace WalletTransaction.Services.Implementation
                 WalletToUpdate.Email = wallet.Email;
 
             }
-            _DbContext .Wallets.Update (wallet);
-            _DbContext.SaveChanges();
+              _DbContext .Wallets.Update (wallet);
+            await _DbContext.SaveChangesAsync();
 
           //if (!string.IsNullOrWhiteSpace(wallet.Email))
           //  {

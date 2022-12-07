@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WalletTransaction.Authentication;
 
 namespace WalletTransaction.Model
 {
@@ -20,7 +21,7 @@ namespace WalletTransaction.Model
         public byte[] PasswordHash { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime LastUpdatedDate { get; set; } 
-        public User User { get; set; }
+        public ApplicationUser User { get; set; }
 
         Random random = new Random();
         public Wallet()

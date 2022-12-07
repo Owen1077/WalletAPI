@@ -65,3 +65,9 @@ C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Serilog.dll
 C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
 C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
 C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\solan\source\repos\WalletTransaction\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

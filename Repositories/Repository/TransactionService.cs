@@ -145,8 +145,9 @@ namespace WalletTransaction.Services.Implementation
                         (walletDb.Entry(destinationAccount).State == EntityState.Modified))
                 {
                     transaction.TransactionStatus = TranStatus.Success;
+
                     response.ResponseCode = "00";
-                    response.ResponseMessage = "Transaction sucessful";
+                    response.ResponseMessage = $"Your transfer of {amount } is sucessful";
                     response.Data = null;
 
 

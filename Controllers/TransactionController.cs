@@ -33,25 +33,53 @@ namespace WalletTransaction.Controllers
         [Route("Create_New_Transaction")]
         public async Task<IActionResult> Createnewtransaction([FromBody] TransationRequestDto transationRequest)
         {
-            if (!ModelState.IsValid) return BadRequest(transationRequest);
-            var transaction = _mapper.Map<Transaction>(transationRequest);
-            return Ok(await _transactions.CreateNewTransaction(transaction));
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest(transationRequest);
+                var transaction = _mapper.Map<Transaction>(transationRequest);
+                return Ok(await _transactions.CreateNewTransaction(transaction));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Transaction creation failed");
+            }
 
         }
         [HttpPost]
         [Route("Make_Deposit")]
         public async Task<IActionResult> MakeDeposit(string walletNumber, double amount, string TransactionPin)
         {
-            if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
-            return Ok(await _transactions.MakeDeposit(walletNumber, amount, TransactionPin));
+            try
+            {
+
+                if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
+                return Ok(await _transactions.MakeDeposit(walletNumber, amount, TransactionPin));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                   "Transaction failed");
+            }
         }
 
         [HttpPost]
         [Route("Make_Withdraw")]
         public async Task<IActionResult> MakeWithraw(string walletNumber, double amount, string TransactionPin)
         {
-            if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
-            return Ok(await _transactions.MakeWithdrawal(walletNumber, amount, TransactionPin));
+            try
+            {
+                if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
+                return Ok(await _transactions.MakeWithdrawal(walletNumber, amount, TransactionPin));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                   $"Transaction fail at {amount}");
+                throw;
+            }
         }
 
         [HttpPost]
@@ -65,28 +93,46 @@ namespace WalletTransaction.Controllers
         [Route("Get_All_Transaction")]
         public async Task<ActionResult<List<Transaction>>> GetTransactions(int page)
         {
-            if (_dbContext.Transactions == null)
-                return NotFound();
-            var pageResult = 2f;
-            var pageCount = Math.Ceiling(_dbContext.Transactions.Count() / pageResult);
-            var transactions = await _dbContext.Transactions
-            .Skip((page - 1) * (int)pageResult)
-                .Take((int)pageResult).ToListAsync();
-            var responsonse = new paging<Transaction>
+            try
             {
-                Translist = transactions,
-                CurrentPage =page,
-                Pages =(int)pageCount
-            };
-            return Ok(responsonse);
+                if (_dbContext.Transactions == null)
+                    return NotFound();
+                var pageResult = 2f;
+                var pageCount = Math.Ceiling(_dbContext.Transactions.Count() / pageResult);
+                var transactions = await _dbContext.Transactions
+                .Skip((page - 1) * (int)pageResult)
+                    .Take((int)pageResult).ToListAsync();
+                var responsonse = new paging<Transaction>
+                {
+                    Translist = transactions,
+                    CurrentPage = page,
+                    Pages = (int)pageCount
+                };
+                return Ok(responsonse);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                   "Error retrieving data from database");
+            }
 
         }
         [HttpGet]
         [Route ("Check_Account_Balance")]
         public async Task<IActionResult >CheckBalance(string walletNumber, string Currency)
         {
-            if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
-            return Ok(await _transactions.CheckWalletBalance(walletNumber, Currency));
+            try
+            {
+                if (!Regex.IsMatch(walletNumber, @"(?<!\d)\d{10}(?!\d)")) return BadRequest("Wallet Number must be 10-digit");
+                return Ok(await _transactions.CheckWalletBalance(walletNumber, Currency));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                   "Transaction Failed");
+            }
         }
 
     }
