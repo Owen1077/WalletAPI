@@ -7080,23 +7080,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\solan\\.nuget\\packages\\": {},
+    "C:\\Users\\Decagon\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\solan\\source\\repos\\WalletTransaction\\WalletTransaction.csproj",
+      "projectUniqueName": "C:\\Users\\Decagon\\Source\\Repos\\NEW-Week-9-10-Grp-e\\WalletTransaction.csproj",
       "projectName": "WalletTransaction",
-      "projectPath": "C:\\Users\\solan\\source\\repos\\WalletTransaction\\WalletTransaction.csproj",
-      "packagesPath": "C:\\Users\\solan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\solan\\source\\repos\\WalletTransaction\\obj\\",
+      "projectPath": "C:\\Users\\Decagon\\Source\\Repos\\NEW-Week-9-10-Grp-e\\WalletTransaction.csproj",
+      "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Decagon\\Source\\Repos\\NEW-Week-9-10-Grp-e\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\solan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Decagon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7105,7 +7105,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7194,7 +7193,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
